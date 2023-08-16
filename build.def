@@ -1,0 +1,17 @@
+Bootstrap: library
+From: debian
+
+%post
+    apt-get update -y && apt-get upgrade -y
+    apt-get install -y cmake gcc g++ pip
+    pip install 'chatglm-cpp[api]'
+
+%test
+    uvicorn --help
+
+%labels
+    Author sylens wong
+    Version v0.1
+
+%help
+    container to run chatglm.cpp with openai-like api
